@@ -1,14 +1,20 @@
 interface PageHeaderProps {
   title: string;
+  color?: "red" | "blue";
+  /** Heading level; pages use the default h1, sidebar boxes use h2. */
+  as?: "h1" | "h2";
+  className?: string;
 }
 
-export default function PageHeader({ title }: PageHeaderProps) {
+export default function PageHeader({
+  title,
+  color = "red",
+  as: Tag = "h1",
+  className = "mb-4",
+}: PageHeaderProps) {
   return (
-    <header className="mb-12 sm:mb-14">
-      <h1 className="text-3xl font-semibold tracking-tight text-stone-100 sm:text-4xl">
-        {title}
-      </h1>
-      <div className="mt-5 h-px w-12 bg-accent" />
-    </header>
+    <Tag className={`${color === "red" ? "bar-red" : "bar-blue"} ${className}`}>
+      {title}
+    </Tag>
   );
 }

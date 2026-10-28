@@ -54,11 +54,13 @@ export interface Project {
   demo?: string;
 }
 
-export interface Interest {
-  /** Any emoji — keeps interests flexible without needing icon names. */
-  emoji: string;
+/**
+ * A blog topic. Tag a post with `topic: <label>` in its frontmatter
+ * (case-insensitive, e.g. `topic: tech`).
+ */
+export interface Topic {
   label: string;
-  /** Optional one-liner shown under the label. */
+  /** Optional one-liner shown when readers filter by this topic. */
   note?: string;
 }
 
@@ -81,7 +83,7 @@ export interface PortfolioData {
   };
   experience: ExperienceItem[];
   projects: Project[];
-  interests: Interest[];
+  topics: Topic[];
   socials: SocialLink[];
 }
 
@@ -160,12 +162,6 @@ export const portfolioData: PortfolioData = {
         period: "2026 — Present",
         description: "-1769",
       },
-       {
-        name: "Berk1337; UC Berkeley Cybersecurity Club",
-        role: "Lab Committee",
-        period: "2026-Present",
-        description: "Lab Committee, Hacks and Crafts Team",
-      },
       {
         name: "Berkeley Residential Life",
         role: "Resident Assistant",
@@ -240,54 +236,12 @@ export const portfolioData: PortfolioData = {
     },
   ],
 
-  // ---- Interests -----------------------------------------------------------
-  interests: [
-    {
-      emoji: "🕺",
-      label: "dancing",
-      note: "popping, tutting, krump, n groovin",
-    },
-    {
-      emoji: "🌐",
-      label: "crypto",
-      note: "stablecoin infra, defi, yield farming, mining",
-    },
-    {
-      emoji: "📸",
-      label: "cinematography",
-      note: "ig: jeff.wangg"
-    },
-    { 
-      emoji: "⛳",
-      label: "golf",
-      note: "7 handicap, youth coach, 73 best round",
-    },
-    {
-      emoji: "🥋",
-      label: "brazilian jiu-jitsu",
-      note: "training since 2023 — de la riva :)",
-    },
-    
-    {
-      emoji: "📈",
-      label: "investing",
-      note: "watch the bond markets!!",
-    },
-    {
-      emoji: "🏔️",
-      label: "backpacking",
-      note: "oregon is so pretty",
-    },
-    {
-      emoji: "⛹️",
-      label: "basketball",
-      note: "i spam 3s",
-    },
-    {
-      emoji: "⚽",
-      label: "soccer",
-      note: "midfield",
-    },
+  // ---- Blog topics ---------------------------------------------------------
+  // These fill the blog's topic filter. Add one here to start a new topic.
+  topics: [
+    { label: "misc" },
+    { label: "tech" },
+    { label: "blockchain" },
   ],
 
   // ---- Socials -------------------------------------------------------------

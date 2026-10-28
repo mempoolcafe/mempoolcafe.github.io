@@ -4,55 +4,61 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { portfolioData } from "@/lib/portfolio-data";
 
+// Shown in the top-left corner. Reword freely.
+const siteTitle = "~ my website ~";
+const siteSubtitle = "est. 2025";
+
 const navLinks = [
-  { label: "About", href: "/" },
-  { label: "Experience", href: "/experience" },
-  { label: "Education", href: "/education" },
+  { label: "Blog", href: "/" },
+  { label: "About Me", href: "/about" },
   { label: "Projects", href: "/projects" },
-  { label: "Interests", href: "/interests" },
   { label: "Contact", href: "/contact" },
 ];
+
+// The blog lives at "/", with individual posts under /blog/<slug>.
+function isActive(pathname: string, href: string) {
+  if (href === "/") {
+    return pathname === "/" || pathname.startsWith("/blog");
+  }
+  return pathname.startsWith(href);
+}
 
 export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-stone-800/80 bg-[#0c0a09]/85 backdrop-blur-md">
-      <div className="mx-auto flex h-16 w-full max-w-5xl items-center justify-between gap-6 px-6">
-        <Link
-          href="/"
-          className="shrink-0 text-[15px] font-semibold tracking-tight text-stone-100 transition-colors hover:text-accent"
-        >
-          {portfolioData.name}
+    <header className="pt-4">
+      <div className="flex flex-wrap items-end justify-between gap-x-6 gap-y-2 pb-3">
+        <Link href="/" className="text-ink no-underline hover:text-ink">
+          <span className="block text-[15px] font-bold">{siteTitle}</span>
+          <span className="block text-[10px] text-muted">{siteSubtitle}</span>
         </Link>
-        <nav className="no-scrollbar -mx-2 flex items-center gap-1 overflow-x-auto px-2">
-          {navLinks.map((link) => {
-            const active = pathname === link.href;
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                aria-current={active ? "page" : undefined}
-                className={`shrink-0 rounded-md px-3 py-1.5 text-sm transition-colors ${
-                  active
-                    ? "text-accent"
-                    : "text-stone-400 hover:text-stone-100"
-                }`}
-              >
-                {link.label}
-              </Link>
-            );
-          })}
-        </nav>
-        <a
-          href={portfolioData.resumeUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hidden shrink-0 rounded-md border border-stone-700 px-3.5 py-1.5 text-sm text-stone-300 transition-colors hover:border-accent hover:text-stone-100 sm:block"
-        >
-          Resume
-        </a>
+        <p className="text-[11px] font-bold">
+          <Link href="/">blog</Link>
+          {" | "}
+          <Link href="/about">about me</Link>
+          {" | "}
+          <a
+            href={portfolioData.resumeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            resume
+          </a>
+        </p>
       </div>
+      <nav className="flex flex-wrap gap-x-[3px] gap-y-1 border-b-4 border-[#4f9620]">
+        {navLinks.map((link) => (
+          <Link
+            key={link.href}
+            href={link.href}
+            aria-current={isActive(pathname, link.href) ? "page" : undefined}
+            className="tab-glossy"
+          >
+            {link.label}
+          </Link>
+        ))}
+      </nav>
     </header>
   );
 }

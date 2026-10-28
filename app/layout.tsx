@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import "@fontsource-variable/inter";
 import "./globals.css";
 import { portfolioData } from "@/lib/portfolio-data";
-import ParticlesBackground from "@/components/particles-background";
 import Navbar from "@/components/navbar";
+import Sidebar from "@/components/sidebar";
 import Footer from "@/components/footer";
+import SparkleTrail from "@/components/sparkle-trail";
 
 export const metadata: Metadata = {
   title: {
@@ -21,13 +21,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="flex min-h-screen flex-col bg-[#0c0a09] font-sans text-stone-200 antialiased">
-        <ParticlesBackground />
-        <Navbar />
-        <main className="mx-auto w-full max-w-5xl flex-1 px-6 pb-24 pt-28 sm:pt-32">
-          {children}
-        </main>
-        <Footer />
+      <body className="font-sans">
+        <div className="mx-auto w-full max-w-[800px] px-4">
+          <Navbar />
+          {/* Sidebar comes first on desktop, but stacks below the content on mobile. */}
+          <div className="mt-4 grid gap-5 md:grid-cols-[190px_1fr]">
+            <main className="min-w-0 md:order-2">{children}</main>
+            <div className="md:order-1">
+              <Sidebar />
+            </div>
+          </div>
+          <Footer />
+        </div>
+        <SparkleTrail />
       </body>
     </html>
   );

@@ -1,22 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# portfolio
 
-## Getting Started
+My personal site: a retro, early-2000s-style portfolio built with Next.js and Tailwind CSS.
 
-First, run the development server:
+## Running it
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Editing content
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Portfolio content** (bio, experience, education, projects, links, blog topics): `lib/portfolio-data.ts`
+- **Site title** in the top-left corner: `siteTitle` in `components/navbar.tsx`
+- **Donations:** every page's sidebar has a Donate button linking to `/donate`, which has two "under construction" placeholders. Build the Ethereum wallet + smart contract UI (ETH & USDC) in `components/donate-widget.tsx`, and Bitcoin tips in `components/bitcoin-donate.tsx`.
 
+The blog is the landing page (`/`). Everything resume-related (experience, education, coursework, clubs, resume PDF) is on `/about`.
+
+## Writing a blog post
+
+1. Create a Markdown file in `content/blog/`. The filename becomes the URL, so `content/blog/on-bonds.md` is served at `/blog/on-bonds`.
+2. Start it with frontmatter:
+
+   ```md
+   ---
+   title: on bonds
+   date: 2026-11-02
+   summary: one line shown in the post list.
+   topic: misc
+   ---
+
+   The post itself, in regular Markdown.
+   ```
+
+   `topic` is optional and should match a topic label in `lib/portfolio-data.ts` (case doesn't matter). Readers can filter the blog by topic, and the filtered view has its own link, e.g. `/?topic=tech`. To add a new topic, add it to the `topics` list there.
+
+3. Commit and deploy. Posts are listed newest first, grouped by month, and any post less than 30 days old gets a blinking NEW! tag.

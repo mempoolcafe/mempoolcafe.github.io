@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { withBasePath } from "@/lib/base-path";
 import { portfolioData } from "@/lib/portfolio-data";
 
 // Shown in the top-left corner. Reword freely.
@@ -39,7 +40,7 @@ export default function Navbar() {
           <Link href="/about">about me</Link>
           {" | "}
           <a
-            href={portfolioData.resumeUrl}
+            href={withBasePath(portfolioData.resumeUrl)}
             target="_blank"
             rel="noopener noreferrer"
           >

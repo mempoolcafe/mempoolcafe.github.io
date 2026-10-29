@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import Image from "next/image";
 import PageHeader from "@/components/page-header";
 import { portfolioData } from "@/lib/portfolio-data";
+import { withBasePath } from "@/lib/base-path";
 
 export const metadata: Metadata = {
   title: "About Me",
@@ -25,8 +26,8 @@ function BackToTop() {
 }
 
 export default function AboutPage() {
-  const { name, location, email, resumeUrl, about, socials, experience } =
-    portfolioData;
+  const { name, location, email, about, socials, experience } = portfolioData;
+  const resumeUrl = withBasePath(portfolioData.resumeUrl);
   const { schools, coursework, clubs } = portfolioData.education;
   const currentSchool = schools[0];
 
@@ -74,7 +75,7 @@ export default function AboutPage() {
         {about.photo && (
           <div className="mx-auto w-fit shrink-0 border border-rule p-1 sm:mx-0">
             <Image
-              src={about.photo}
+              src={withBasePath(about.photo)}
               alt={`Portrait of ${name}`}
               width={160}
               height={200}

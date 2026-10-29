@@ -2,9 +2,11 @@ import Link from "next/link";
 import { portfolioData } from "@/lib/portfolio-data";
 import PageHeader from "@/components/page-header";
 import AcceptedTokens from "@/components/accepted-tokens";
+import { withBasePath } from "@/lib/base-path";
 
 export default function Sidebar() {
-  const { resumeUrl, socials } = portfolioData;
+  const { socials } = portfolioData;
+  const resumeUrl = withBasePath(portfolioData.resumeUrl);
 
   return (
     <aside className="space-y-5 text-[12px]">

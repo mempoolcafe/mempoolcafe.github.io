@@ -15,7 +15,9 @@ Then open [http://localhost:3000](http://localhost:3000).
 
 - **Portfolio content** (bio, experience, education, projects, links, blog topics): `lib/portfolio-data.ts`
 - **Site title** in the top-left corner: `siteTitle` in `components/navbar.tsx`
-- **Donations:** every page's sidebar has a Donate button linking to `/donate`, which has two "under construction" placeholders. Build the Ethereum wallet + smart contract UI (ETH & USDC) in `components/donate-widget.tsx`, and Bitcoin tips in `components/bitcoin-donate.tsx`.
+- **Donations:** every page's sidebar has a Donate button linking to `/donate`.
+  - Bitcoin: the receiving address is `donate.bitcoinAddress` in `lib/portfolio-data.ts`, shown by `components/bitcoin-donate.tsx`.
+  - Ethereum (ETH & USDC): still an "under construction" placeholder. Build the wallet + smart contract UI in `components/donate-widget.tsx`.
 
 The blog is the landing page (`/`). Everything resume-related (experience, education, coursework, clubs, resume PDF) is on `/about`.
 

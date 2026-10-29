@@ -13,9 +13,9 @@ export default function DonatePage() {
     <>
       <PageHeader title="Donate" color="blue" />
       <p>
-        if something here made you think, soon you&apos;ll be able to leave a
-        tip in crypto: ETH or USDC on the Ethereum network, or BTC on Bitcoin.
-        thanks for stopping by!
+        if something here made you think, you can leave a tip in crypto: BTC
+        on the Bitcoin network now, and ETH or USDC on Ethereum soon. thanks
+        for stopping by!
       </p>
       <AcceptedTokens className="mt-3" />
 

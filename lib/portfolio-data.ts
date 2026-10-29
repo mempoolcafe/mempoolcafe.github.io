@@ -85,6 +85,10 @@ export interface PortfolioData {
   projects: Project[];
   topics: Topic[];
   socials: SocialLink[];
+  donate: {
+    /** Native SegWit (bc1q…) address shown on /donate. Public — never a key or seed. */
+    bitcoinAddress: string;
+  };
 }
 
 export const portfolioData: PortfolioData = {
@@ -262,4 +266,9 @@ export const portfolioData: PortfolioData = {
       icon: "mail",
     },
   ],
+
+  // ---- Donations -----------------------------------------------------------
+  donate: {
+    bitcoinAddress: "bc1qmd4d8drkj0r6wx5aqqpf5xxepy6ukje0tvw4eg",
+  },
 };

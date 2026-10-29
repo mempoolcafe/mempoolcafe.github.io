@@ -6,6 +6,6 @@ summary: first post!
 ## introduction
 hello everyone welcome to my blog. i will write about stuff that i am currently interested in. 
 
-> dont anything everything i say seriously. this blog is just for fun. 
+> dont take anything i say seriously. this blog is just for fun. 
 
 

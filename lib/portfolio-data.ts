@@ -122,13 +122,13 @@ export const portfolioData: PortfolioData = {
         degree: "B.A. in Data Science & Economics",
         period: "2023 — 2027",
         details:
-          "go bears!",
+          "3.7",
       },
       {
         school: "Diamond Bar High School",
         period: "2019 — 2023",
         details: "co'23 vice president",
-        degree: "High School Diploma"
+        degree: "High School"
       },
     ],
     // Each entry renders as "CODE — Name". Codes below are standard Berkeley
@@ -136,7 +136,9 @@ export const portfolioData: PortfolioData = {
     coursework: [
       { code: "CS 61A", name: "Structure and Interpretation of Computer Programs" },
       { code: "CS 61B", name: "Data Structures & Algorithms" },
+      { code: "CS 61C", name: "Computer Architecture (Machine Structures)" },
       { code: "CS 70", name: "Discrete Math & Probability Theory" },
+      { code: "CS 168", name: "Internet: Architecture and Protocols" },
       { code: "CS 188", name: "Introduction to Artificial Intelligence" },
       { code: "CS 189", name: "Intro to Machine Learning" },
       { code: "DATA 8", name: "Foundations of Data Science" },
@@ -146,6 +148,7 @@ export const portfolioData: PortfolioData = {
       { code: "STAT 144", name: "Data Mining and Analytics" },
       { code: "MATH 54", name: "Linear Algebra" },
       { code: "MATH 53", name: "Multivariable Calculus" },
+
     ],
     clubs: [
       {
@@ -182,7 +185,7 @@ export const portfolioData: PortfolioData = {
       company: "CME Group",
       url: "https://www.cmegroup.com",
       role: "Artificial Intelligence Research Intern",
-      period: "Aug 2025 — May 2026",
+      period: "Aug 2025 — Janurary 2026",
       location: "Chicago, IL",
       highlights: [
         "Designed and presented a 'Fantasy Futures' product concept for ESPN and CME Group by scraping market data and designing an educational UX to engage Gen Z/Millennial users.",
@@ -192,8 +195,8 @@ export const portfolioData: PortfolioData = {
     {
       company: "Broctagon Fintech Group",
       url: "https://www.broctagon.com",
-      role: "Software Development Intern",
-      period: "May 2025 — July 2025",
+      role: "Software Engineer Intern",
+      period: "May 2025 — August 2025",
       location: "Singapore",
       highlights: [
         "Built a Python-based testing framework for evaluating Amazon Bedrock LLMs (Claude) across financial NLP tasks; implemented dynamic prompt generation, structured output parsing, and automated failure logging",
@@ -203,7 +206,7 @@ export const portfolioData: PortfolioData = {
     },
     {
       company: "Propulsion AI - Berkeley SkyDeck",
-      role: "Backend Developer",
+      role: "Backend Developer Intern",
       period: "May 2024 — Aug 2024",
       location: "Berkeley, CA",
       highlights: [
@@ -222,6 +225,14 @@ export const portfolioData: PortfolioData = {
       tech: ["Python", "Flask", "SQLAlchemy","JavaScript", "Cytoscape.js", "Tailwind CSS", "pytest","Alpine.js"],
       github: "https://github.com/tasa-berkeley/tasa_website",
       demo: "https://tasa.studentorg.berkeley.edu/alumni",
+    },
+    {
+      name: "Solidity Tip Jar",
+      description:
+        "Solidity Smart Contract Tip Jar ",
+      tech: ["Solidity"],
+      github: "https://github.com/jeffw3558/solidity-tip-jar",
+      demo: "google.com",
     },
     {
       name: "Dynamic Social Recovery Protocol",

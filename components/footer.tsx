@@ -2,9 +2,9 @@ import Link from "next/link";
 import { portfolioData } from "@/lib/portfolio-data";
 
 const footerLinks = [
-  { label: "BLOG", href: "/" },
-  { label: "ABOUT ME", href: "/about" },
+  { label: "ABOUT ME", href: "/" },
   { label: "PROJECTS", href: "/projects" },
+  { label: "BLOG", href: "/blog" },
   { label: "CONTACT", href: "/contact" },
 ];
 

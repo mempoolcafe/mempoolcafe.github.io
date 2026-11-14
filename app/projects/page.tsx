@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import PageHeader from "@/components/page-header";
 import { portfolioData } from "@/lib/portfolio-data";
 
@@ -36,15 +37,20 @@ export default function ProjectsPage() {
                     [source]
                   </a>
                 )}
-                {project.demo && (
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    [demo]
-                  </a>
-                )}
+                {/* Demos on this site (e.g. "/donate") open in place via
+                    <Link>, which also adds the GitHub Pages base path. */}
+                {project.demo &&
+                  (project.demo.startsWith("/") ? (
+                    <Link href={project.demo}>[demo]</Link>
+                  ) : (
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      [demo]
+                    </a>
+                  ))}
               </p>
             )}
           </li>

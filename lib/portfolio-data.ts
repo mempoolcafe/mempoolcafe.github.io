@@ -51,6 +51,7 @@ export interface Project {
   description: string;
   tech: string[];
   github?: string;
+  /** A page on this site ("/donate") or a full external URL ("https://…"). */
   demo?: string;
 }
 
@@ -110,7 +111,7 @@ export const portfolioData: PortfolioData = {
     photo: "/jeff_portfolio.jpg",
     bio: [
       "Hello there! My name is Jeff. I study at UC Berkeley, where I am pursuing a B.A. in Data Science and Economics.",
-      "I am interested in software engineering, distributed systems, and cryptography!",
+      "I am interested in distributed backend systems, cryptography, markets, and all types of sports!",
     ],
   },
 
@@ -122,7 +123,7 @@ export const portfolioData: PortfolioData = {
         degree: "B.A. in Data Science & Economics",
         period: "2023 — 2027",
         details:
-          "3.7",
+          "GPA: 3.7",
       },
       {
         school: "Diamond Bar High School",
@@ -232,7 +233,7 @@ export const portfolioData: PortfolioData = {
         "Solidity Smart Contract Tip Jar ",
       tech: ["Solidity"],
       github: "https://github.com/jeffw3558/solidity-tip-jar",
-      demo: "google.com",
+      demo: "/donate",
     },
     {
       name: "Dynamic Social Recovery Protocol",

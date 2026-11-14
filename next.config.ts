@@ -29,10 +29,10 @@ const nextConfig: NextConfig = {
         // Static exports can't redirect, so these are Vercel-only.
         async redirects() {
           return [
-            { source: "/blog", destination: "/", permanent: false },
-            { source: "/interests", destination: "/", permanent: false },
-            { source: "/experience", destination: "/about#experience", permanent: false },
-            { source: "/education", destination: "/about#education", permanent: false },
+            { source: "/about", destination: "/", permanent: false },
+            { source: "/interests", destination: "/blog", permanent: false },
+            { source: "/experience", destination: "/#experience", permanent: false },
+            { source: "/education", destination: "/#education", permanent: false },
           ];
         },
       }),

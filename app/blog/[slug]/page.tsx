@@ -47,7 +47,7 @@ export default async function PostPage({ params }: PostPageProps) {
           <>
             {" "}
             &middot; filed under{" "}
-            <Link href={`/?topic=${topic.slug}`}>{topic.label}</Link>
+            <Link href={`/blog?topic=${topic.slug}`}>{topic.label}</Link>
           </>
         )}
       </p>
@@ -64,7 +64,7 @@ export default async function PostPage({ params }: PostPageProps) {
             <span className="text-muted">&laquo; oldest post</span>
           )}
         </span>
-        <Link href="/">all posts</Link>
+        <Link href="/blog">all posts</Link>
         <span>
           {newer ? (
             <Link href={`/blog/${newer.slug}`}>{newer.title} &raquo;</Link>

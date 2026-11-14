@@ -15,11 +15,11 @@ Then open [http://localhost:3000](http://localhost:3000).
 
 - **Portfolio content** (bio, experience, education, projects, links, blog topics): `lib/portfolio-data.ts`
 - **Site title** in the top-left corner: `siteTitle` in `components/navbar.tsx`
-- **Donations:** every page's sidebar has a Donate button linking to `/donate`.
+- **Donations:** the sidebar on the blog (including posts) and contact pages has a Donate button linking to `/donate`. Change which pages show it with `donatePaths` in `components/sidebar.tsx`.
   - Bitcoin: the receiving address is `donate.bitcoinAddress` in `lib/portfolio-data.ts`, shown by `components/bitcoin-donate.tsx`.
   - Ethereum (ETH & USDC): still an "under construction" placeholder. Build the wallet + smart contract UI in `components/donate-widget.tsx`.
 
-The blog is the landing page (`/`). Everything resume-related (experience, education, coursework, clubs, resume PDF) is on `/about`.
+About Me is the landing page (`/`), with everything resume-related (experience, education, coursework, clubs, resume PDF). The blog is at `/blog`. Old `/about` links redirect to `/`.
 
 ## Writing a blog post
 
@@ -37,6 +37,6 @@ The blog is the landing page (`/`). Everything resume-related (experience, educa
    The post itself, in regular Markdown.
    ```
 
-   `topic` is optional and should match a topic label in `lib/portfolio-data.ts` (case doesn't matter). Readers can filter the blog by topic, and the filtered view has its own link, e.g. `/?topic=tech`. To add a new topic, add it to the `topics` list there.
+   `topic` is optional and should match a topic label in `lib/portfolio-data.ts` (case doesn't matter). Readers can filter the blog by topic, and the filtered view has its own link, e.g. `/blog?topic=tech`. To add a new topic, add it to the `topics` list there.
 
 3. Commit and deploy. Posts are listed newest first, grouped by month, and any post less than 30 days old gets a blinking NEW! tag.

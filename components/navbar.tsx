@@ -10,18 +10,16 @@ const siteTitle = "~ my website ~";
 const siteSubtitle = "est. 2025";
 
 const navLinks = [
-  { label: "Blog", href: "/" },
-  { label: "About Me", href: "/about" },
+  { label: "About Me", href: "/" },
   { label: "Projects", href: "/projects" },
+  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 
-// The blog lives at "/", with individual posts under /blog/<slug>.
+// About Me is the landing page ("/"). Every other tab also stays lit on its
+// subpages, e.g. Blog on /blog/<slug>.
 function isActive(pathname: string, href: string) {
-  if (href === "/") {
-    return pathname === "/" || pathname.startsWith("/blog");
-  }
-  return pathname.startsWith(href);
+  return href === "/" ? pathname === "/" : pathname.startsWith(href);
 }
 
 export default function Navbar() {
@@ -35,9 +33,9 @@ export default function Navbar() {
           <span className="block text-[10px] text-muted">{siteSubtitle}</span>
         </Link>
         <p className="text-[11px] font-bold">
-          <Link href="/">blog</Link>
+          <Link href="/">about me</Link>
           {" | "}
-          <Link href="/about">about me</Link>
+          <Link href="/blog">blog</Link>
           {" | "}
           <a
             href={withBasePath(portfolioData.resumeUrl)}

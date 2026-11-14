@@ -103,7 +103,7 @@ export default function BlogFeedView({
                         <>
                           {" "}
                           &middot; filed under{" "}
-                          <Link href={`/?topic=${postTopic.slug}`}>
+                          <Link href={`/blog?topic=${postTopic.slug}`}>
                             {postTopic.label}
                           </Link>
                         </>
